@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let year = prompt('Provide your birth year:', new Date().getFullYear());
+        let month = prompt('Provide your birth month:');
+        let date = prompt('Provide your birth date:');
+        let birthDate;
+        let age;
+
+        try {
+            if (isNaN(year + month + date)) {
+                throw new Error('Some inputs are not valid');
+            }
+
+            birthDate = new Date(year, month - 1, date);
+            age = new Date().getFullYear() - birthDate.getFullYear();
+           
+        } catch (error) {
+            alert(error.message);
+            window.location = window.location;
+        }
+
+    </script>
+</head>
+
+<body>
+    <h1>Age Calculator</h1>
+    <p>Provided birthdate: <script>document.write(birthDate.toDateString());</script></p>
+    <p>
+        Your age in the Year <script>document.write(new Date().getFullYear())</script>: 
+        <script>document.write(age)</script>.
+    </p>
+</body>
+
+</html>
